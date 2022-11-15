@@ -2,10 +2,12 @@ class PetsController < ApplicationController
 before_action :set_pet, only: [:show]
 
   def index
-    @pets = Pet.all
+    @pets = policy_scope(Pet)
   end
 
   def show
+    @pet = Pet.find(params[:id])
+    authorize @pet
   end
 
   private
