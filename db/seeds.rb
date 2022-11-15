@@ -15,12 +15,12 @@ puts 'Destroying Bookings'
 
 puts 'Seeding Database'
 puts 'Creating Users'
+
 50.times do
   User.create!(
     email: Faker::Internet.unique.email,
     password: Faker::Internet.password(min_length: 8),
     rating: (1..5).to_a.sample,
-
   )
 end
 
@@ -45,4 +45,4 @@ puts 'Creating bookings'
   )
 end
 
-
+puts "Created #{USer.count} users, #{Pet.count} pets, and #{Booking.count} bookings"
