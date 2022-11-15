@@ -16,9 +16,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.pet = @pet
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to bookings_path
     else
+      raise
+
       render "pets/show", status: :unprocessable_entity
     end
   end
