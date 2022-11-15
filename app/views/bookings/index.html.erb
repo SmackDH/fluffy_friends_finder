@@ -1,0 +1,13 @@
+<div class="container mt-3">
+  <h1>Index Bookings</h1>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li>
+        <%= booking.user.username %>
+        <p><%= booking.date_start %></p>
+        <p><%= booking.date_end %></p>
+        <hr>
+      </li>
+    <% end %>
+  </ul>
+</div>
