@@ -1,12 +1,8 @@
 <h1>Welcome to Fluffy Friend Finder</h1>
 <ul>
-  <% @pets.each do |pet|%>
-    <%= link_to pet_path(pet) do %>
-    <div>
-      Name: <%= pet.name %>
-      Species: <%= pet.description %>
-      Price: <%= pet.price %>
-    </div>
+  <div class="cards">
+    <% @pets.each do |pet|%>
+      <%= render 'card', pet: pet %>
     <% end %>
-  <% end %>
+  </div>
 </ul>
