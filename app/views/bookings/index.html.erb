@@ -4,6 +4,7 @@
     <% @bookings.each do |booking| %>
       <li>
         <%= booking.user.username %>
+        <p>Pet: <%= booking.pet.name %></p>
         <p><%= booking.date_start %></p>
         <p><%= booking.date_end %></p>
         <hr>
@@ -11,3 +12,4 @@
     <% end %>
   </ul>
 </div>
+<%= link_to 'Return Home!', pets_path(@Pet), class: 'btn btn-danger mt-3' %>

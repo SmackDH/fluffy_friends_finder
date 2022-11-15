@@ -1,6 +1,12 @@
-<h1>This should be pets index</h1>
+<h1>Welcome to Fluffy Friend Finder</h1>
 <ul>
   <% @pets.each do |pet|%>
-    <%= pet.name %>
+    <%= link_to pet_path(pet) do %>
+    <div>
+      Name: <%= pet.name %>
+      Species: <%= pet.description %>
+      Price: <%= pet.price %>
+    </div>
+    <% end %>
   <% end %>
 </ul>
