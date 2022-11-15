@@ -7,6 +7,7 @@ before_action :set_pet, only: [:show]
 
   def show
     @pet = Pet.find(params[:id])
+    @booking = Booking.new
     authorize @pet
   end
 

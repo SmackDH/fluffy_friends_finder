@@ -1,9 +1,4 @@
 class BookingsController < ApplicationController
-  def new
-    @booking = Booking.new
-    @pet = Pet.find(params[:pet_id])
-  end
-
   def create
     @pet = Pet.find(params[:pet_id])
     @booking = Booking.new(booking_params)
@@ -12,7 +7,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path
     else
-      render :new, status: :unprocessable_entity
+      render "pets/show", status: :unprocessable_entity
     end
   end
 
