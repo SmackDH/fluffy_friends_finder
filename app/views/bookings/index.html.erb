@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <h1>Index Bookings</h1>
   <ul>
-    <% @bookings.each do |booking| %>
+    <% @current_user.bookings.each do |booking| %>
       <li>
         <%= booking.user.username %>
         <p>Pet: <%= booking.pet.name %></p>
