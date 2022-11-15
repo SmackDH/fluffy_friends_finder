@@ -1,6 +1,8 @@
 <h1>This should be pets index</h1>
 <ul>
-  <% @pets.each do |pet|%>
-    <%= pet.name %>
-  <% end %>
+  <div class="cards">
+    <% @pets.each do |pet|%>
+      <%= render 'card', pet: pet %>
+    <% end %>
+  </div>
 </ul>
