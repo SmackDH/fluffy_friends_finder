@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
-
   def index
     @bookings = Booking.all
     @bookings = policy_scope(Booking)
+  end
 
   def new
     @booking = Booking.new
@@ -14,10 +14,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.pet = @pet
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to bookings_path
     else
-      render :new, status: :unprocessable_entity
+      render "pets/show", status: :unprocessable_entity
     end
   end
 
