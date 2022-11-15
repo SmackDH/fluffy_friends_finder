@@ -1,13 +1,14 @@
 <div class="container mt-3">
   <h1>Index Bookings</h1>
   <ul>
-    <% @bookings.each do |booking| %>
+    <% @current_user.bookings.each do |booking| %>
       <li>
-        <%= booking.user.username %>
+        <p><%= booking.user.username %></p>
+        <p><%= link_to booking.pet.name, pet_path(booking.pet) %></p>
         <p><%= booking.date_start %></p>
         <p><%= booking.date_end %></p>
-        <hr>
       </li>
     <% end %>
   </ul>
 </div>
+<%= link_to 'Return Home!', pets_path(@Pet), class: 'btn btn-danger mt-3' %>
