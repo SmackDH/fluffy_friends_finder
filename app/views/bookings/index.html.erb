@@ -3,11 +3,10 @@
   <ul>
     <% @current_user.bookings.each do |booking| %>
       <li>
-        <%= booking.user.username %>
-        <p>Pet: <%= booking.pet.name %></p>
+        <p><%= booking.user.username %></p>
+        <p><%= link_to booking.pet.name, pet_path(booking.pet) %></p>
         <p><%= booking.date_start %></p>
         <p><%= booking.date_end %></p>
-        <hr>
       </li>
     <% end %>
   </ul>
