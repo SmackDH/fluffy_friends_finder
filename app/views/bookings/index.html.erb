@@ -3,10 +3,12 @@
   <ul>
     <% @bookings.each do |booking| %>
       <li>
-        <%= link_to booking.user.username, pets_path %>
+        <p><%= booking.user.username %></p>
+        <p><%= link_to booking.pet.name, pet_path(booking.pet) %></p>
         <p><%= booking.date_start %></p>
         <p><%= booking.date_end %></p>
       </li>
     <% end %>
   </ul>
 </div>
+<%= link_to 'Return Home!', pets_path(@Pet), class: 'btn btn-danger mt-3' %>

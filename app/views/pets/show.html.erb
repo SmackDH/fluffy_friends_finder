@@ -1,7 +1,10 @@
 <h1>Show Pet Module</h1>
-<p>This should be a popup....</p>
+<h2><%= @pet.name %></h2>
+<h3>$<%= @pet.price %> / day</h3>
+<h3><%= @pet.description %></h3>
 <%= simple_form_for [@pet, @booking] do |f| %>
   <%= f.input :date_start %>
   <%= f.input :date_end %>
   <%= f.submit %>
 <% end %>
+<%= link_to 'Return Home!', pets_path(@Pet), class: 'btn btn-danger mt-3' %>
