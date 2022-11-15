@@ -16,33 +16,37 @@ puts 'Destroying Bookings'
 puts 'Seeding Database'
 puts 'Creating Users'
 
-50.times do
+25.times do
   User.create!(
     email: Faker::Internet.unique.email,
     password: Faker::Internet.password(min_length: 8),
-    rating: (1..5).to_a.sample,
+    username: Faker::Internet.unique.username
   )
 end
 
 puts 'Creating Pets'
-50.times do
+25.times do
   Pet.create!(
-    price: (100..100_000_000).to_a.sample,
+    price: rand(1..100),
     name: Faker::Name.unique.name,
     description: Faker::Creature::Animal.name,
     available: [true, false].sample,
-    image: 'http://source.unsplash.com/featured/?<%= @restaurant.category.downcase %>&<%= rand(1000) %>/800x333'
+    user: User.all.sample
   )
 end
 
 puts 'Creating bookings'
 
-50.times do
+25.times do
+  date_start = rand(1..50)
+  date_end = rand(51..100)
   Booking.create!(
-    date_start: Faker::Date.between(from: '2022-01-1', to: '2022-06-31'),
-    date_end: Faker::Date.between(from: '2022-07-1', to: '2022-12-31'),
-    status: ['Accepted', 'Pending', 'Rejected'].sample
+    date_start: Faker::Date.forward(days: date_start),
+    date_end: Faker::Date.forward(days: date_end),
+    status: [0, 1, 2].sample,
+    user: User.all.sample,
+    pet: Pet.all.sample
   )
 end
 
-puts "Created #{USer.count} users, #{Pet.count} pets, and #{Booking.count} bookings"
+puts "Created #{User.count} users, #{Pet.count} pets, and #{Booking.count} bookings"
