@@ -1,6 +1,4 @@
 class BookingsController < ApplicationController
-
-
   def index
     @bookings = Booking.all
     @bookings = policy_scope(Booking)
@@ -20,8 +18,6 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path
     else
-      raise
-
       render "pets/show", status: :unprocessable_entity
     end
   end
