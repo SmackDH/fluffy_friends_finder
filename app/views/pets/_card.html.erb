@@ -1,4 +1,5 @@
 <%# <%= pet.photo.attached? ? cl_image_path(pet.photo.key) : %>
+<%# comment added %>
 <div class="card-box col-sm-3" >
   <div class="shadow-lg card mt-3" style="height: 400px;">
     <img style="height: 200px"  src="<%= pet.photo.attached? ? cl_image_path(pet.photo.key) : 'https://source.unsplash.com/200x200' %>" class="card-img-top" alt="...">
