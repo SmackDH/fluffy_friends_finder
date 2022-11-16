@@ -1,8 +1,8 @@
-<h1>Welcome to Fluffy Friend Finder</h1>
-<ul>
-  <div class="cards">
+<div class="container">
+  <h1>Welcome to Fluffy Friend Finder</h1>
+  <div class="row">
     <% @pets.each do |pet|%>
       <%= render 'card', pet: pet %>
     <% end %>
   </div>
-</ul>
+</div>
