@@ -1,5 +1,9 @@
 class PetsController < ApplicationController
-before_action :set_pet, only: [:show]
+  skip_before_action :authenticate_user!, only: :home
+  before_action :set_pet, only: [:show]
+
+  def home
+  end
 
   def index
     @pets = policy_scope(Pet)
