@@ -1,21 +1,15 @@
-<div class="container mt-3">
+<div class="container mt-3 mb-3">
   <h1>My Bookings</h1>
-  <ul>
-    <% @current_user.bookings.each do |booking| %>
-      <li>
-        <p><%= booking.user.username %></p>
-        <p><%= link_to booking.pet.name, pet_path(booking.pet) %></p>
-        <p><%= booking.date_start %></p>
-        <p><%= booking.date_end %></p>
-      </li>
-    <% end %>
-  </ul>
-  <%= link_to 'Return Home!', pets_path(@Pet), class: 'btn btn-danger mt-3' %>
-</div>
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
+  <% @current_user.bookings.each do |booking| %>
+    <div class="card-product mt-3">
+      <%# <%= image_tag booking.pet.image.attached? ? cl_image_path(booking.pet.image.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU', alt: "text" %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2>Name: <%= link_to booking.pet.name, pet_path(booking.pet) %></h2>
+        <p>Date start: <%= booking.date_start %></p>
+        <p>Date end: <%= booking.date_end %></p>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to 'Return Home!', pets_path(@Pet), class: 'btn btn-primary mt-3' %>
 </div>
