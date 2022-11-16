@@ -1,14 +1,17 @@
-<div class="container mt-3">
-  <h1>Index Bookings</h1>
-  <ul>
-    <% @current_user.bookings.each do |booking| %>
-      <li>
-        <p><%= booking.user.username %></p>
-        <p><%= link_to booking.pet.name, pet_path(booking.pet) %></p>
-        <p><%= booking.date_start %></p>
-        <p><%= booking.date_end %></p>
-      </li>
+<div class="container mt-3 mb-3">
+  <h1>My Bookings</h1>
+  <% @current_user.bookings.each do |booking| %>
+    <div class="card-product mt-3">
+      <img style="height: 200px"  src="<%= booking.pet.photo.attached? ? cl_image_path(booking.pet.photo.key) : 'https://source.unsplash.com/200x200' %>" class="card-img-top" alt="...">
+      <div class="card-product-infos">
+        <h2>Name: <%= link_to booking.pet.name, pet_path(booking.pet) %></h2>
+        <p><%= booking.date_start %> ~ <%= booking.date_end %></p>
+      </div>
+    </div>
+  <% end %>
+  <div class="home">
+    <%= link_to pets_path(@Pet), class: 'mt-3' do %>
+      <i class="fa-solid fa-house"></i>
     <% end %>
-  </ul>
+  </div>
 </div>
-<%= link_to 'Return Home!', pets_path(@Pet), class: 'btn btn-danger mt-3' %>
