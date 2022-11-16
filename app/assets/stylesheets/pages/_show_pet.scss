@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.show-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+
+  h2,h3,h4 {
+    font-family: 'Poppins', sans-serif;
+  }
+  h3 {
+    text-transform: uppercase;
+    color: rgb(177,177,177);
+    font-size: .8rem;
+  }
+
+  p {
+    line-height: 1.4em;
+  }
+
+  input {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.pet-card {
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
