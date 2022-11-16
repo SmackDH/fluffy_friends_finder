@@ -1,10 +1,33 @@
-<h1>Show Pet Module</h1>
-<h2><%= @pet.name %></h2>
-<h3>$<%= @pet.price %> / day</h3>
-<h3><%= @pet.description %></h3>
-<%= simple_form_for [@pet, @booking] do |f| %>
-  <%= f.input :date_start %>
-  <%= f.input :date_end %>
-  <%= f.submit %>
-<% end %>
-<%= link_to 'Return Home!', pets_path(@Pet), class: 'btn btn-danger mt-3' %>
+<div class="wrapper">
+  <div class="show-container">
+    <div class="row g-5 justify-content-evenly">
+      <div class="col-lg-6 mt-0">
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-6 col-md-5">
+              <%= image_tag @pet.photo.attached? ? cl_image_path(@pet.photo.key) : 'https://source.unsplash.com/200x200', class:"card-img pet-card img-fluid rounded-start"%>
+            </div>
+            <div class="col-6 col-md-7 col-sm-6">
+              <div class="card-body d-flex flex-column">
+                <div class="h-100">
+                  <h3 class="card-title">Reservation</h3>
+                  <h2 class="card-title"><%= @pet.name %></h3>
+                  <p class="card-text">Spieces: <%= @pet.description.capitalize %></p>
+                  <h4 class="card-title mb-3">$<strong><%= @pet.price %></strong> / day</h4>
+                </div>
+                <div>
+                  <%= simple_form_for [@pet, @booking] do |f| %>
+                    <%= f.input :date_start, html5: true, class: "date-input" %>
+                    <%= f.input :date_end, html5: true, class: "date-input"%>
+                    <%= button_tag type: 'submit', class: "btn btn-success" do %>
+                      Book<i class="bi bi-bag-check m-1"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
