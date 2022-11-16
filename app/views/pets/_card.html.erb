@@ -1,12 +1,13 @@
 <%# <%= pet.photo.attached? ? cl_image_path(pet.photo.key) : %>
-<div class="col-sm-3">
-  <div class="card mt-3">
-    <img src="https://source.unsplash.com/200x200" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%= pet.name %></h5>
-      <p class="card-text"><%= pet.description %></p>
-      <a href="#" class="btn btn-primary"><%= pet.available %></a>
-      <%= link_to "", pet_path(pet), class:"card-link" %>
+<div class="card-box col-sm-3" >
+  <div class="shadow-lg card mt-3" style="height: 400px;">
+    <img style="height: 200px"  src="<%= pet.photo.attached? ? cl_image_path(pet.photo.key) : 'https://source.unsplash.com/200x200' %>" class="card-img-top" alt="...">
+    <div class="card-body d-flex flex-column justify-content-between">
+      <div>
+        <h5 class="card-title"><strong><%= pet.name %></strong></h5>
+        <p class="card-text"><%= pet.description %></p>
+      </div>
+      <%= link_to "More information", pet_path(pet), class:"btn btn-success" %>
     </div>
   </div>
 </div>
