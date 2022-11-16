@@ -1,10 +1,25 @@
 .card-product {
   overflow: hidden;
-  height: 200px;
+  height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+}
+
+.home {
+  margin-top: 30px;
+}
+.home a {
+  font-size: 30px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.card-product-infos a {
+  text-decoration: none;
 }
 
 .card-product img {
