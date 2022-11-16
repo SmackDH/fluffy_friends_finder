@@ -22,6 +22,20 @@ h1 {
   text-decoration: none;
 }
 
+.card-product-infos {
+  flex-grow: 1 ;
+}
+
+.content {
+  justify-content: space-between;
+  display: flex;
+  flex-grow: 1;
+}
+
+.accept a {
+  margin-right: 20px;
+}
+
 .card-product img {
   height: 100%;
   width: 120px;
