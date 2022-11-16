@@ -1,4 +1,5 @@
 require 'faker'
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -24,15 +25,21 @@ puts 'Creating Users'
   )
 end
 
+animals = %w[dog cat snake bird fish turtle corgi bear tiger lion rabbit hamster giraffe]
 puts 'Creating Pets'
 25.times do
-  Pet.create!(
+  description = animals.sample
+  pet = Pet.create!(
     price: rand(1..100),
     name: Faker::Name.unique.name,
-    description: Faker::Creature::Animal.name,
+    description: description,
     available: [true, false].sample,
     user: User.all.sample
   )
+  puts "Searching for an image for #{description}"
+  file = URI.open("http://source.unsplash.com/featured/?#{description}&#{rand(10)}")
+  pet.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+  pet.save
 end
 
 puts 'Creating bookings'
