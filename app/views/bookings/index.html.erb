@@ -1,5 +1,5 @@
 <div class="container mt-3">
-  <h1>Index Bookings</h1>
+  <h1>My Bookings</h1>
   <ul>
     <% @current_user.bookings.each do |booking| %>
       <li>
@@ -10,5 +10,12 @@
       </li>
     <% end %>
   </ul>
+  <%= link_to 'Return Home!', pets_path(@Pet), class: 'btn btn-danger mt-3' %>
 </div>
-<%= link_to 'Return Home!', pets_path(@Pet), class: 'btn btn-danger mt-3' %>
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
