@@ -15,7 +15,29 @@ class PetsController < ApplicationController
     authorize @pet
   end
 
+  def new
+    @user = current_user
+    @pet = Pet.new
+    authorize @pet
+  end
+
+  def create
+    @user = current_user
+    @pet = Pet.new(pet_params)
+    @pet.user = @user
+    authorize @pet
+    if @pet.save
+      redirect_to pet_path(@pet)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
+
+  def pet_params
+    params.require(:pet).permit(:name, :species, :description, :photo)
+  end
 
   def set_pet
     @pet = Pet.find(params[:id])

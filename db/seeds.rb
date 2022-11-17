@@ -25,19 +25,20 @@ puts 'Creating Users'
   )
 end
 
-animals = %w[dog cat snake bird fish turtle corgi bear tiger lion rabbit hamster giraffe]
+animals = %w[dog cat snake bird fish turtle corgi bear tiger lion rabbit hamster giraffe pig]
 puts 'Creating Pets'
 25.times do
-  description = animals.sample
+  species = animals.sample
   pet = Pet.create!(
     price: rand(1..100),
     name: Faker::Name.unique.name,
-    description: description,
+    species: species,
+    description: "They're a good #{species}",
     available: [true, false].sample,
     user: User.all.sample
   )
-  puts "Searching for an image for #{description}"
-  file = URI.open("http://source.unsplash.com/featured/?#{description}")
+  puts "Searching for an image for a #{species}"
+  file = URI.open("http://source.unsplash.com/featured/?#{species}")
   pet.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   pet.save
 end
