@@ -2,6 +2,12 @@
   justify-content: space-between;
   background: white;
   box-shadow: 0px 0px 4px #888888;
+
+  a {
+    color: $navbar-text-gray;
+    padding: 8px;
+  }
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +20,8 @@
 
 .avatar {
   width: 50px;
+}
+
+.navbar {
+  padding: 0px 12px;
 }
