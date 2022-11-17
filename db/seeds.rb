@@ -51,7 +51,7 @@ puts 'Creating bookings'
   Booking.create!(
     date_start: Faker::Date.forward(days: date_start),
     date_end: Faker::Date.forward(days: date_end),
-    status: [0, 1, 2].sample,
+    status: ["accepted", "rejected", "pending"].sample,
     user: User.all.sample,
     pet: Pet.all.sample
   )

@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
     @bookings = policy_scope(Booking)
   end
 
@@ -22,6 +21,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to owner_bookings_path
+    else
+      render :index
+    end
+  end
 
   private
 
@@ -29,5 +37,5 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:status, :date_start, :date_end)
   end
 
-  
+
 end
