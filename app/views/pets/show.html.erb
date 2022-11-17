@@ -12,7 +12,8 @@
                 <div class="h-100">
                   <h3 class="card-title">Reservation</h3>
                   <h2 class="card-title"><%= @pet.name %></h3>
-                  <p class="card-text">Spieces: <%= @pet.description.capitalize %></p>
+                  <p class="card-text"><strong>Species:</strong>  <%= @pet.species.capitalize %></p>
+                  <p class="card-title"><%= @pet.description %></h3>
                   <h4 class="card-title mb-3">$<strong><%= @pet.price %></strong> / day</h4>
                 </div>
                 <div>

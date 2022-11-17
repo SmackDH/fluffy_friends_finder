@@ -9,8 +9,12 @@ class PetPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
+
   def create?
-    record.user == user
+    true
   end
 
   def update?
