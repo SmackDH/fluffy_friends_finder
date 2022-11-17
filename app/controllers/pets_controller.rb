@@ -7,7 +7,7 @@ class PetsController < ApplicationController
 
   def index
     if params[:query].present?
-      @pets = policy_scope(Pet).where(description: params[:query])
+      @pets = policy_scope(Pet).global_search(params[:query])
     else
       @pets = policy_scope(Pet)
     end
