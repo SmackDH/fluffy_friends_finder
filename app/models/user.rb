@@ -8,4 +8,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def has_pets?
+    pets.any?
+  end
 end

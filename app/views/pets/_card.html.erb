@@ -8,6 +8,7 @@
         <h5 class="card-title"><strong><%= pet.name %></strong></h5>
         <p class="card-text"><%= pet.description %></p>
       </div>
+      <h5 class="card-price">$<%= pet.price %>/day</h5>
       <%= link_to "More information", pet_path(pet), class:"btn btn-success" %>
     </div>
   </div>
