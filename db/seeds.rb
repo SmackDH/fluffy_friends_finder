@@ -37,7 +37,7 @@ puts 'Creating Pets'
     user: User.all.sample
   )
   puts "Searching for an image for #{description}"
-  file = URI.open("http://source.unsplash.com/featured/?#{description}&#{rand(10)}")
+  file = URI.open("http://source.unsplash.com/featured/?#{description}")
   pet.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   pet.save
 end
