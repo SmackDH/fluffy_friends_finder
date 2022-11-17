@@ -1,7 +1,14 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://assets.entrepreneur.com/content/3x2/2000/1589538284-dogpuppy.jpg?);">
-  <div class="container">
-    <h1>Fluffly Friends Finder</h1>
-    <%= link_to "Find a pet", "#", class: "btn btn-success" %>
-    <%= link_to "Share your pet", "#", class: "btn btn-success" %>
+  <div class="container px-4 px-lg-5 h-100">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+      <div class="col-lg-8 align-self-end">
+        <h1 class="text-white font-weight-bold">Fluffly Friends Finder</h1>
+        <hr class="divider" />
+      </div>
+      <div class="col-lg-8 align-self-baseline">
+        <%= link_to "Find a pet", pets_path, class:"btn btn-success" %>
+        <%= link_to "Share your pet", new_pet_path, class:"btn btn-success" %>
+      </div>
+    </div>
   </div>
 </div>
