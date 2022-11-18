@@ -1,37 +1,20 @@
 <div class="container mt-3 mb-3">
-  <h2>My bookings</h2>
+  <div class="title">
+    <h2>My bookings</h2>
+  </div>
   <% @bookings.each do |booking| %>
     <% if booking.status != "rejected" %>
-      <div class="card-product mt-3">
-        <img style="height: 200px"  src="<%= booking.pet.photo.attached? ? cl_image_path(booking.pet.photo.key) : 'https://source.unsplash.com/200x200' %>" class="card-img-top" alt="...">
-        <div class="content">
-          <div class="card-product-infos">
-            <h2>Name: <%= booking.user.username %></h2>
-            <p><%= booking.date_start %> ~ <%= booking.date_end %></p>
-          </div>
-        <% end %>
-        <% if booking.status == "pending" %>
-          <div class="d-flex">
-            <%= simple_form_for booking do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-              <%= f.submit 'Accept', class: 'btn btn-info' %>
-            <% end %>
-            <%= simple_form_for booking do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-              <%= f.submit 'Reject', class: 'btn btn-light' %>
-            <% end %>
-          </div>
-        <% else %>
-          <p class='booking-tag'><%= booking.status if booking.status != "rejected"%></p>
-        <% end %>
-      </div>
+      <%= render 'card_product', booking: booking %>
+    <% end %>
+  <% end %>
+  <div class="container">
+    <div class="title mt-3">
+      <h2>My Pets</h2>
     </div>
-  <% end %>
-  <h2>My Pets</h2>
-  <% @current_user.pets.order("created_at desc").each do |pet| %>
-    <ul>
-      <li><%= pet.name %></li>
-    </ul>
-  <% end %>
-</div>
+    <div class="pet-cards d-flex gap-4 mb-3">
+      <% @current_user.pets.order("created_at desc").each do |pet| %>
+        <%= render 'pets/card', pet: pet %>
+      <% end %>
+    </div>
+  </div>
 </div>
