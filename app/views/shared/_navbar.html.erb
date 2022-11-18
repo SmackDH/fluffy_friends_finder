@@ -4,12 +4,14 @@
       <%= image_tag "https://res.cloudinary.com/dfuvnptrs/image/upload/v1668576879/fff_logo_tklhhx.svg" %>
     <% end %></div>
   <div class="flex-grow-1 d-flex">
-    <%= form_with url: pets_path, method: :get, class: "d-flex" do %>
+    <%= form_with url: pets_path, method: :get, class: "d-flex" do |f| %>
       <%= text_field_tag :query,
                   params[:query],
                   class: "form-control",
                   placeholder: "Find a pet"
                   %>
+      <%= f.date_field :start, html5: true, class: "date-input" %>
+      <%= f.date_field :end, html5: true, class: "date-input"%>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
