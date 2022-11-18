@@ -1,13 +1,15 @@
 <div class="container mt-3 mb-3">
   <h2>My bookings</h2>
   <% @bookings.each do |booking| %>
-    <div class="card-product mt-3">
-      <img style="height: 200px"  src="<%= booking.pet.photo.attached? ? cl_image_path(booking.pet.photo.key) : 'https://source.unsplash.com/200x200' %>" class="card-img-top" alt="...">
-      <div class="content">
-        <div class="card-product-infos">
-          <h2>Name: <%= link_to booking.pet.name, pet_path(booking.pet) %></h2>
-          <p><%= booking.date_start %> ~ <%= booking.date_end %></p>
-        </div>
+    <% if booking.status != "rejected" %>
+      <div class="card-product mt-3">
+        <img style="height: 200px"  src="<%= booking.pet.photo.attached? ? cl_image_path(booking.pet.photo.key) : 'https://source.unsplash.com/200x200' %>" class="card-img-top" alt="...">
+        <div class="content">
+          <div class="card-product-infos">
+            <h2>Name: <%= booking.user.username %></h2>
+            <p><%= booking.date_start %> ~ <%= booking.date_end %></p>
+          </div>
+        <% end %>
         <% if booking.status == "pending" %>
           <div class="d-flex">
             <%= simple_form_for booking do |f| %>
@@ -20,7 +22,7 @@
             <% end %>
           </div>
         <% else %>
-          <p class='booking-tag'><%= booking.status %></p>
+          <p class='booking-tag'><%= booking.status if booking.status != "rejected"%></p>
         <% end %>
       </div>
     </div>
