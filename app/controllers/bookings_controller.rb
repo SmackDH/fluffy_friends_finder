@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @pet.end = @booking.date_end
     authorize @booking
     if @booking.save
-      redirect_to owner_bookings_path
+      redirect_to bookings_path
     else
       render "pets/show", status: :unprocessable_entity
     end
