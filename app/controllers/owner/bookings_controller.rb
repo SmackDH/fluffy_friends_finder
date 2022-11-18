@@ -4,7 +4,6 @@ class Owner::BookingsController < ApplicationController
     @pets = current_user.pets
   end
 
-
   private
 
   def booking_params
