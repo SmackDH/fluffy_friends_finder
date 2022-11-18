@@ -3,19 +3,7 @@ class Owner::BookingPolicy < ApplicationPolicy
     def resolve
       scope.joins(:pet).where(pets: {user: user})
     end
-
-
-    def index?
-      true
-    end
-
   end
-  def update?
-    record.user == user
-    # record: the restaurant passed to the `authorize` method in controller
-    # user: the `current_user` signed in with Devise
-  end
-
   def destroy?
     record.user == user
   end

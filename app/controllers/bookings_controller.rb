@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
     @bookings = policy_scope(Booking)
   end
 
@@ -21,6 +20,17 @@ class BookingsController < ApplicationController
       redirect_to bookings_path
     else
       render "pets/show", status: :unprocessable_entity
+    end
+  end
+
+
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to owner_bookings_path
+    else
+      render :index
     end
   end
 

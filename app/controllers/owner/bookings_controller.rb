@@ -4,17 +4,6 @@ class Owner::BookingsController < ApplicationController
     @pets = current_user.pets
   end
 
-  def update
-    @booking = @booking.find(params[:id])
-    @booking.pet.available = true
-    # @booking = Booking.new(booking_params)
-    authorize @booking
-    if @booking.save
-      redirect_to bookings_path
-    else
-      render bookings
-    end
-  end
 
   private
 

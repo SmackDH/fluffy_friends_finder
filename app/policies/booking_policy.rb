@@ -6,6 +6,10 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def update?
+    user.pets.include?(record.pet)
+  end
+
   def create?
     true
   end
