@@ -8,7 +8,7 @@ class Pet < ApplicationRecord
 
   # pg_search_scope :date_between, against: [ :start, :end ]
   pg_search_scope :global_search, against: [ :name, :species, :city],
-   associated_against: {user: [ :name] #=> Change this to "user's name"-key when added.
+   associated_against: {user: [ :first_name] #=> Change this to "user's name"-key when added.
     },
      using: {
       tsearch: { prefix: true }
