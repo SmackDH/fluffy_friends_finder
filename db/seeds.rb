@@ -21,7 +21,8 @@ puts 'Creating Users'
   User.create!(
     email: Faker::Internet.unique.email,
     password: Faker::Internet.password(min_length: 8),
-    username: Faker::Internet.unique.username
+    username: Faker::Internet.unique.username,
+    first_name: Faker::Name.first_name
   )
 end
 
