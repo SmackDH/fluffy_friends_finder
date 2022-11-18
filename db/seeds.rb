@@ -26,16 +26,19 @@ puts 'Creating Users'
 end
 
 animals = %w[dog cat snake bird fish turtle corgi bear tiger lion rabbit hamster giraffe pig]
+cities = %w[Kyoto Tokyo Osaka Nagoya Sapporo Kobe Yokohama Fukuoka Takamatsu Sendai Nagano]
 puts 'Creating Pets'
 25.times do
   species = animals.sample
+  city = cities.sample
   pet = Pet.create!(
     price: rand(1..100),
     name: Faker::Name.unique.name,
     species: species,
     description: "They're a good #{species}",
     available: [true, false].sample,
-    user: User.all.sample
+    user: User.all.sample,
+    city: city
   )
   puts "Searching for an image for a #{species}"
   file = URI.open("http://source.unsplash.com/featured/?#{species}")

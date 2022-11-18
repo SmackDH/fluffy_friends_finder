@@ -3,6 +3,7 @@
     <%= simple_form_for(@pet) do |f| %>
       <%= f.input :name %>
       <%= f.input :species %>
+      <%= f.input :city, label: "Location (city)" %>
       <%= f.input :description %>
       <%= f.input :price, label: "Price/Day $" %>
       <%= f.input :photo, as: :file %>

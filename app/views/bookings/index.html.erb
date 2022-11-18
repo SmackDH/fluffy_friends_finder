@@ -10,23 +10,21 @@
         </div>
         <div class="accept">
           <div class="d-flex justify-content-center">
-            <% if booking.pet.available %>
+            <% if booking.status == "accepted" %>
               <a href="#" class="btn btn-success">
                 <%= "Accepted" %>
               </a>
-            <% else %>
+            <% elsif booking.status == "pending" %>
               <a href="#" class="btn btn-primary">
-                <%= "Confirming" %>
+                <%= "Pending" %>
               </a>
-            <% end %>
+            <% else %>
+              <a href="#" class="btn btn-body-color">
+                <%= "Rejected" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-  <div class="home">
-    <%= link_to pets_path(@Pet), class: 'mt-3' do %>
-      <i class="fa-solid fa-house"></i>
     <% end %>
   </div>
-</div>

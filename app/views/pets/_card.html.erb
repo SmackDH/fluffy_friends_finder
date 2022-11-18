@@ -9,7 +9,13 @@
         <p class="card-text"><%= pet.description %></p>
       </div>
       <h5 class="card-price">$<%= pet.price %>/day</h5>
-      <%= link_to "More information", pet_path(pet), class:"btn btn-success" %>
+      <% if pet.user == current_user %>
+        <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Top popover">
+          Waiting for bookings
+        </button>
+      <% else %>
+        <%= link_to "More information", pet_path(pet), class:"btn btn-success" %>
+      <% end %>
     </div>
   </div>
 </div>
