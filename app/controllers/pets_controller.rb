@@ -6,7 +6,9 @@ class PetsController < ApplicationController
   end
 
   def index
-    if params[:query].present?
+    if params[:query].present? && params[:start].present? && params[:end].present?
+      @pets = policy_scope(Pet).global_search(params[:query])
+    elsif params[:query].present?
       @pets = policy_scope(Pet).global_search(params[:query])
     else
       @pets = policy_scope(Pet)
@@ -46,5 +48,4 @@ class PetsController < ApplicationController
   def set_pet
     @pet = Pet.find(params[:id])
   end
-
 end
