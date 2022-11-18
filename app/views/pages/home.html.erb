@@ -1,25 +1,27 @@
-<div class="banner" >
-  <div class="container">
-    <div class="align-items-center justify-content-center text-center">
-      <%= image_tag "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668721866/Fluffy_Friends_Finder/fff_logo_lp_liedzl.svg"%>
-      <%# buttons %>
-      <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668725372/Fluffy_Friends_Finder/find-person-icon_onswl0.svg" alt="" class="icon">
-      <%= link_to "Find a pet", pets_path, class:"button" %>
-      <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668725372/Fluffy_Friends_Finder/find-pet-icon_nkddnc.svg" alt="" class="icon">
-      <%= link_to "Share your pet", new_pet_path, class:"button" %>
-      <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668725372/Fluffy_Friends_Finder/share-icon_yfbfrp.svg" alt="" class="icon">
-    </div>
-  </div>
-  <%# start caroulsel%>
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668720716/Fluffy_Friends_Finder/caroulsel1_cmud2n.jpg" class="d-block w-100 h-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668720717/Fluffy_Friends_Finder/caroulsel2_xhxgnd.jpg" class="d-block w-100 h-100" alt="...">
+<%# <body class="fixed-body"> %>
+  <div class="banner" >
+    <div class="container">
+      <div class="align-items-center justify-content-center text-center">
+        <%= image_tag "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668721866/Fluffy_Friends_Finder/fff_logo_lp_liedzl.svg"%>
+        <%# buttons %>
+        <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668725372/Fluffy_Friends_Finder/find-person-icon_onswl0.svg" alt="" class="icon">
+        <%= link_to "Find a pet", pets_path, class:"button" %>
+        <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668725372/Fluffy_Friends_Finder/find-pet-icon_nkddnc.svg" alt="" class="icon">
+        <%= link_to "Share your pet", new_pet_path, class:"button" %>
+        <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668725372/Fluffy_Friends_Finder/share-icon_yfbfrp.svg" alt="" class="icon">
       </div>
     </div>
+    <%# start caroulsel%>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668720716/Fluffy_Friends_Finder/caroulsel1_cmud2n.jpg" class="d-block w-100 h-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1668720717/Fluffy_Friends_Finder/caroulsel2_xhxgnd.jpg" class="d-block w-100 h-100" alt="...">
+        </div>
+      </div>
+    </div>
+    <%# end  %>
   </div>
-  <%# end  %>
-</div>
+</body>
