@@ -2,7 +2,7 @@
   <img style="height: 200px"  src="<%= booking.pet.photo.attached? ? cl_image_path(booking.pet.photo.key) : 'https://source.unsplash.com/200x200' %>" class="card-img-top" alt="...">
   <div class="content">
     <div class="card-product-infos">
-      <h2>Name: <%= booking.user.username %></h2>
+      <h2>Name: <%= booking.user.first_name %></h2>
       <p><%= booking.date_start %> ~ <%= booking.date_end %></p>
     </div>
     <% if booking.status == "pending" %>
