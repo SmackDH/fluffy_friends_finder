@@ -1,15 +1,13 @@
 # 🐕 Fluffy Friends Finder
 
-A fun and heartwarming rental-system for pets.
+A fun and heartwarming rental-app for pets.
 
-Desktop Owner             |  Mobile User
-:-------------------------:|:-------------------------:
-<img src="https://user-images.githubusercontent.com/66011769/205541912-3bdb7e66-f6e7-4dcd-b1f8-94477bc0e41b.png" width=100% height=100%>  |  <img src="https://user-images.githubusercontent.com/66011769/205541886-e80a108a-7797-402b-bb19-ba70332ae911.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/66011769/205549280-809000b0-7977-42da-a0c0-dadf8be3193a.png" width=50% height=50%> <img src="https://user-images.githubusercontent.com/66011769/205549292-e7c958cc-4f00-4266-8cd3-4ec1e732e05a.png" width=50% height=50%>
 
 
 
 <br>
-App home: https://www.ozei.fun
+
    
 
 ## Getting Started
